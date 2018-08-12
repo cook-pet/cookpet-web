@@ -3,9 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "firebase": "^5.3.1",
+    "oneteam-rte": "^2.1.4",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "slate": "^0.37.3",
+    "slate-react": "^0.15.4",
+    "uuid": "^3.3.2"
   },
   "scripts": {
     "start": "react-scripts start",
