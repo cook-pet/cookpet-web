@@ -1,4 +1,6 @@
 import firebase from 'firebase';
+
+
 const config = {
   apiKey: "AIzaSyAn9R6tTLhpazNyP5_HVZxrskkmRivSYkI",
   authDomain: "cookpet-7b0b3.firebaseapp.com",
@@ -8,5 +10,6 @@ const config = {
   messagingSenderId: "212142476354"
 };
 firebase.initializeApp(config);
+
 
 export default firebase;
