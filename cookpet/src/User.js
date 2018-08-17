@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-class Author extends React.Component {
+class User extends React.Component {
   render() {
     return (
       "author"
@@ -10,4 +10,4 @@ class Author extends React.Component {
 }
 
 
-export default Author;
+export default User;

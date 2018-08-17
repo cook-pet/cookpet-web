@@ -1,10 +1,10 @@
 import React from 'react';
-import { BrowserRouter, Route, Link } from 'react-router-dom'
+import { BrowserRouter, Route } from 'react-router-dom'
 
 
 class Book extends React.Component {
   render() {
-    return (
+    return(
       <BrowserRouter>
         <div>
           <Route exact path='/books/:bookname' component={Cover} />
@@ -17,7 +17,7 @@ class Book extends React.Component {
 
 
 const Cover = () => {
-  return (
+  return(
     "cover"
   );
 };
@@ -25,8 +25,8 @@ const Cover = () => {
 
 const Page = (props) => {
   const { page } = props.match.params
-  return (
-    <h1>{page}</h1>
+  return(
+    <h1>{ page }</h1>
   );
 };
 
