@@ -1,14 +1,42 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter} from 'react-router-dom';
+import {gray800,
+        deepPurple600,
+        deepPurple800,
+        pinkA200} from 'material-ui/styles/colors';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import './css/index.css';
 import App from './App';
 
 
+const muiTheme = getMuiTheme({
+  palette: {
+    primary1Color: deepPurple800,
+    primary2Color: deepPurple600,
+    primary3Color: gray800,
+    accent1Color: pinkA200,
+//    accent2Color: grey100,
+//    accent3Color: grey500,
+//    textColor: darkBlack,
+//    alternateTextColor: white,
+//    canvasColor: white,
+//    borderColor: grey300,
+//    disabledColor: fade(darkBlack, 0.3),
+//    pickerHeaderColor: cyan500,
+//    clockCircleColor: fade(darkBlack, 0.07),
+//    shadowColor: fullBlack,
+  },
+//  appBar: {
+//    height: 80,
+//  },
+});
+
+
 ReactDOM.render(
   <BrowserRouter>
-    <MuiThemeProvider>
+    <MuiThemeProvider muiTheme={muiTheme}>
         <App />
     </MuiThemeProvider>
   </BrowserRouter>
