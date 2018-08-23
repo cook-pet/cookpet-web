@@ -1,6 +1,8 @@
 import React from 'react';
 import { Editor, EditorState, RichUtils } from 'draft-js';
-
+import ActionHome from 'material-ui/svg-icons/action/home';
+import FontIcon from 'material-ui/FontIcon';
+import NatsumeTheme from '../NatsumeTheme';
 
 class RichEditor extends React.Component {
   constructor(props) {
@@ -93,30 +95,30 @@ class StyleButton extends React.Component {
   }
 
   render() {
-    let className = 'RichEditor-styleButton';
+    let className = 'material-icons RichEditor-styleButton';
+    let color = NatsumeTheme.palette.disabledColor;
     if (this.props.active) {
-      className += ' RichEditor-activeButton';
+      color = NatsumeTheme.palette.primary2Color;
     }
     return (
-      <span className={className} onMouseDown={this.onToggle}>
+      <FontIcon
+        className={className}
+        color={color}
+        onMouseDown={this.onToggle}>
         {this.props.label}
-      </span>
-
+      </FontIcon>
     );
   }
 }
 
 const BLOCK_TYPES = [
-  {label: 'H1', style: 'header-one'},
-  {label: 'H2', style: 'header-two'},
-  {label: 'H3', style: 'header-three'},
-  {label: 'H4', style: 'header-four'},
-  {label: 'H5', style: 'header-five'},
-  {label: 'H6', style: 'header-six'},
-  {label: 'Blockquote', style: 'blockquote'},
-  {label: 'UL', style: 'unordered-list-item'},
-  {label: 'OL', style: 'ordered-list-item'},
-  {label: 'Code Block', style: 'code-block'},
+  {label: 'filter_1', style: 'header-one'},
+  {label: 'filter_2', style: 'header-two'},
+  {label: 'filter_3', style: 'header-three'},
+  {label: 'format_quote', style: 'blockquote'},
+  {label: 'format_list_bulleted', style: 'unordered-list-item'},
+  {label: 'format_list_numbered', style: 'ordered-list-item'},
+  {label: 'code', style: 'code-block'},
 ];
 
 const BlockStyleControls = (props) => {
@@ -128,7 +130,7 @@ const BlockStyleControls = (props) => {
     .getType();
 
   return (
-    <div className="RichEditor-controls">
+    <span className="RichEditor-controls">
       {BLOCK_TYPES.map((type) =>
         <StyleButton
           key={type.label}
@@ -138,22 +140,21 @@ const BlockStyleControls = (props) => {
           style={type.style}
         />
       )}
-    </div>
+    </span>
   );
 };
 
 var INLINE_STYLES = [
-  {label: 'Bold', style: 'BOLD'},
-  {label: 'Italic', style: 'ITALIC'},
-  {label: 'Underline', style: 'UNDERLINE'},
-  {label: 'Monospace', style: 'CODE'},
+  {label: 'format_bold', style: 'BOLD'},
+  {label: 'format_italic', style: 'ITALIC'},
+  {label: 'format_underlined', style: 'UNDERLINE'},
 ];
 
 const InlineStyleControls = (props) => {
   var currentStyle = props.editorState.getCurrentInlineStyle();
 
   return (
-    <div className="RichEditor-controls">
+    <span className="RichEditor-controls">
       {INLINE_STYLES.map(type =>
         <StyleButton
           key={type.label}
@@ -163,7 +164,7 @@ const InlineStyleControls = (props) => {
           style={type.style}
         />
       )}
-    </div>
+    </span>
   );
 };
 
