@@ -79,9 +79,13 @@ class Logged extends Component {
 
 class Navbar extends Component {
   render() {
+    let titleStyle = {
+      "color": "inherit",
+      "text-decoration": "inherit"
+    }
     return(
       <AppBar
-        title={this.props.title}
+        title={<Link to='/' style={titleStyle}>{this.props.title}</Link>}
         showMenuIconButton={false}
         iconElementRight={this.props.user.displayName ?
                           <Logged user={this.props.user} /> :
