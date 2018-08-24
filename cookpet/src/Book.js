@@ -1,10 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom'
-// import FormatSize from 'material-ui/svg-icons/editor/format-size';
-// import FormatBold from 'material-ui/svg-icons/editor/format-bold';
-// import FormatItalic from 'material-ui/svg-icons/editor/format-italic';
-// import FormatListBulleted from 'material-ui/svg-icons/editor/format-list-bulleted';
-// import FormatListNumbered from 'material-ui/svg-icons/editor/format-list-numbered';
+import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import RichEditor from './components/RichEditor'
 import './css/RichEditor.css';
 
@@ -23,9 +19,16 @@ class Book extends React.Component {
 }
 
 
-const Cover = () => {
+const Cover = (props) => {
+  const { bookname } = props.match.params
   return(
-    "cover"
+    <Card>
+      <CardMedia
+        overlay={<CardTitle title={bookname} />}
+      >
+        <img src="/DSC_0263.JPG" alt="" />
+      </CardMedia>
+    </Card>
   );
 };
 
