@@ -6,12 +6,15 @@ import RaisedButton from 'material-ui/RaisedButton';
 import { Redirect } from 'react-router';
 
 
-export default class DialogExampleScrollable extends React.Component {
-  state = {
-    open: false,
-    bookName: null,
-    redirect: false
-  };
+export default class CreateBookDialog extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      open: false,
+      bookName: null,
+      redirect: false
+    };
+  }
 
   handleOpen = () => {
     this.setState({open: true});
