@@ -129,7 +129,7 @@ const BlockStyleControls = (props) => {
     .getBlockForKey(selection.getStartKey())
     .getType();
 
-  return (
+  return(
     <span className="RichEditor-controls">
       {BLOCK_TYPES.map((type) =>
         <StyleButton
@@ -153,7 +153,7 @@ var INLINE_STYLES = [
 const InlineStyleControls = (props) => {
   var currentStyle = props.editorState.getCurrentInlineStyle();
 
-  return (
+  return(
     <span className="RichEditor-controls">
       {INLINE_STYLES.map(type =>
         <StyleButton

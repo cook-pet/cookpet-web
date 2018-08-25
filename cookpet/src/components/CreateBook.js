@@ -47,7 +47,7 @@ export default class DialogExampleScrollable extends React.Component {
       />,
     ];
 
-    return (
+    return(
       <div>
         <RaisedButton label="図鑑を作る" onClick={this.handleOpen} />
         <Dialog

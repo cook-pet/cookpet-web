@@ -1,8 +1,8 @@
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import {gray800,
-        deepPurple600,
-        deepPurple800,
-        pinkA200} from 'material-ui/styles/colors';
+import { gray800,
+         deepPurple600,
+         deepPurple800,
+         pinkA200 } from 'material-ui/styles/colors';
 
 const muiTheme = getMuiTheme({
   palette: {
