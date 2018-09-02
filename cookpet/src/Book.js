@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom'
-import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
-import Paper from 'material-ui/Paper';
+import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from '@material-ui/core/Card';
+import Paper from '@material-ui/core/Paper';
 import RichEditor from './components/RichEditor'
 import './css/RichEditor.css';
 

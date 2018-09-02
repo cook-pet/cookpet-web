@@ -1,5 +1,5 @@
 import React from 'react';
-import Dialog from 'material-ui/Dialog';
+import Dialog from '@material-ui/core/Dialog';
 import CreateBook from './components/CreateBook';
 
 

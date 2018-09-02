@@ -1,17 +1,13 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
-import AppBar from 'material-ui/AppBar';
-import Avatar from 'material-ui/Avatar';
-import FlatButton from 'material-ui/FlatButton';
-import Popover, {PopoverAnimationVertical} from 'material-ui/Popover';
-import Menu from 'material-ui/Menu';
-import MenuItem from 'material-ui/MenuItem';
-import Weekend from 'material-ui/svg-icons/content/weekend';
-import BlurOn from 'material-ui/svg-icons/image/blur-on';
-import NaturePeople from 'material-ui/svg-icons/image/nature-people';
+import AppBar from '@material-ui/core/AppBar';
+import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
+import Popover, {PopoverAnimationVertical} from '@material-ui/core/Popover';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
 
 class Login extends Component {
-  static muiName = 'FlatButton';
 
   handleClick(e) {
     e.preventDefault();
@@ -20,7 +16,7 @@ class Login extends Component {
 
   render() {
     return(
-      <FlatButton
+      <Button
         {...this.props}
         onClick={(e) => this.handleClick(e)}
         label="Login"
@@ -66,9 +62,9 @@ class Logged extends Component {
           animation={PopoverAnimationVertical}
         >
           <Menu>
-            <MenuItem primaryText="Profile" rightIcon={<Weekend />}/>
-            <MenuItem primaryText="Settings" rightIcon={<NaturePeople />} />
-            <MenuItem primaryText="Log out" rightIcon={<BlurOn />} />
+            <MenuItem primaryText="Profile" />
+            <MenuItem primaryText="Settings" />
+            <MenuItem primaryText="Log out" />
           </Menu>
         </Popover>
       </div>

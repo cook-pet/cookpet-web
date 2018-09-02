@@ -1,8 +1,7 @@
 import React from 'react';
-import TextField from 'material-ui/TextField';
-import Dialog from 'material-ui/Dialog';
-import FlatButton from 'material-ui/FlatButton';
-import RaisedButton from 'material-ui/RaisedButton';
+import TextField from '@material-ui/core/TextField';
+import Dialog from '@material-ui/core/Dialog';
+import Button from '@material-ui/core/Button';
 import { Redirect } from 'react-router';
 
 
@@ -37,12 +36,12 @@ export default class CreateBookDialog extends React.Component {
     const isDisabled = (typeof(this.state.bookName) !== 'string'
                         || this.state.bookName.length === 0);
     const actions = [
-      <FlatButton
+      <Button
         label="キャンセル"
         primary={true}
         onClick={this.handleClose}
       />,
-      <FlatButton
+      <Button
         label="作成"
         primary={true}
         disabled={isDisabled}
@@ -52,7 +51,7 @@ export default class CreateBookDialog extends React.Component {
 
     return(
       <div>
-        <RaisedButton label="図鑑を作る" onClick={this.handleOpen} />
+        <Button label="図鑑を作る" onClick={this.handleOpen} />
         <Dialog
           title="新規図鑑作成"
           actions={actions}

@@ -1,15 +1,11 @@
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import { gray800,
-         deepPurple600,
-         deepPurple800,
-         pinkA200 } from 'material-ui/styles/colors';
+import { createMuiTheme } from '@material-ui/core/styles';
 
-const muiTheme = getMuiTheme({
+const muiTheme = createMuiTheme({
   palette: {
-    primary1Color: deepPurple800,
-    primary2Color: deepPurple600,
-    primary3Color: gray800,
-    accent1Color: pinkA200,
+    // primary1Color: deepPurple800,
+    // primary2Color: deepPurple600,
+    // primary3Color: gray800,
+    // accent1Color: pinkA200,
     // accent2Color: grey100,
     // accent3Color: grey500,
     // textColor: darkBlack,

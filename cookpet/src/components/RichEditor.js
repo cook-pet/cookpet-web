@@ -1,7 +1,6 @@
 import React from 'react';
 import { Editor, EditorState, RichUtils } from 'draft-js';
-import ActionHome from 'material-ui/svg-icons/action/home';
-import FontIcon from 'material-ui/FontIcon';
+import Icon from '@material-ui/core/Icon';
 import NatsumeTheme from '../NatsumeTheme';
 
 class RichEditor extends React.Component {
@@ -101,12 +100,12 @@ class StyleButton extends React.Component {
       color = NatsumeTheme.palette.primary2Color;
     }
     return (
-      <FontIcon
+      <Icon
         className={className}
         color={color}
         onMouseDown={this.onToggle}>
         {this.props.label}
-      </FontIcon>
+      </Icon>
     );
   }
 }
