@@ -42,7 +42,7 @@ class App extends Component {
 
   render() {
     return(
-      <div>
+      <React.Fragment>
         <NavBar
           title={this.state.title}
           user={this.state.user}
@@ -52,7 +52,7 @@ class App extends Component {
         <Route exact path='/' component={Home} />
         <Route path='/user/:username' component={User} />
         <Route path='/books/:bookname' component={Book} />
-      </div>
+      </React.Fragment>
     );
   }
 }

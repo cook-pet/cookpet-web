@@ -1,11 +1,30 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import IconButton from '@material-ui/core/IconButton';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import Popover, {PopoverAnimationVertical} from '@material-ui/core/Popover';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import MenuIcon from '@material-ui/icons/Menu';
+import { withStyles } from '@material-ui/core/styles';
+
+
+const styles = {
+  root: {
+    flexGrow: 1,
+  },
+  flex: {
+    flexGrow: 1,
+  },
+  menuButton: {
+    marginLeft: -12,
+    marginRight: 20,
+  },
+};
 
 class Login extends Component {
 
@@ -16,11 +35,7 @@ class Login extends Component {
 
   render() {
     return(
-      <Button
-        {...this.props}
-        onClick={(e) => this.handleClick(e)}
-        label="Login"
-      />
+      <Button onClick={(e) => this.handleClick(e)} color="inherit">LOGIN</Button>
     );
   }
 }
@@ -51,23 +66,27 @@ class Logged extends Component {
 
   render() {
     return(
-      <div>
-        <Avatar src={this.props.user.photoURL} onClick={this.handleClick} />
-        <Popover
-          open={this.state.open}
-          anchorEl={this.state.anchorEl}
-          anchorOrigin={{horizontal: 'left', vertical: 'bottom'}}
-          targetOrigin={{horizontal: 'left', vertical: 'top'}}
-          onRequestClose={this.handleRequestClose}
-          animation={PopoverAnimationVertical}
+      <React.Fragment>
+        <IconButton
+          aria-owns={this.state.open ? 'menu-appbar' : null}
+          aria-haspopup="true"
+          onClick={this.handleClick}
+          color="inherit"
         >
-          <Menu>
-            <MenuItem primaryText="Profile" />
-            <MenuItem primaryText="Settings" />
-            <MenuItem primaryText="Log out" />
-          </Menu>
-        </Popover>
-      </div>
+          <Avatar src={this.props.user.photoURL}/>
+        </IconButton>
+        <Menu
+          id="menu-appbar"
+          anchorEl={this.state.anchorEl}
+          anchorOrigin={{vertical: 'bottom', horizontal: 'right'}}
+          transformOrigin={{vertical: 'top', horizontal: 'right'}}
+          open={this.state.open}
+          onClose={this.handleRequestClose}
+        >
+          <MenuItem onClick={this.handleClose}>Profile</MenuItem>
+          <MenuItem onClick={this.handleClose}>Log out</MenuItem>
+        </Menu>
+      </React.Fragment>
     );
   }
 }
@@ -75,22 +94,31 @@ class Logged extends Component {
 
 class Navbar extends Component {
   render() {
+    const {classes} = this.props;
     let titleStyle = {
       "color": "inherit",
       "text-decoration": "inherit"
     }
     return(
-      <AppBar
-        title={<Link to='/' style={titleStyle}>{this.props.title}</Link>}
-        showMenuIconButton={false}
-        iconElementRight={this.props.user.displayName ?
-                          <Logged user={this.props.user} /> :
-                          <Login onLogin={()=>this.props.onLogin()} />
-        }
-      />
+      <div className={classes.root}>
+        <AppBar position="static">
+          <Toolbar>
+            <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="title" color="inherit" className={classes.flex}>
+              Album layout
+            </Typography>
+            {
+              this.props.user.displayName ? <Logged user={this.props.user} />
+                                          : <Login onLogin={()=>this.props.onLogin()} />
+            }
+          </Toolbar>
+        </AppBar>
+      </div>
     )
   }
 }
 
 
-export default Navbar;
+export default withStyles(styles)(Navbar);
