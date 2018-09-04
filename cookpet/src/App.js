@@ -5,7 +5,6 @@ import firebase from './components/firebase'
 import Home from './Home'
 import Book from './Book'
 import User from './User'
-import './css/App.css';
 
 
 class App extends Component {

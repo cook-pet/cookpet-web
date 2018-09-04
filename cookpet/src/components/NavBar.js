@@ -107,7 +107,7 @@ class Navbar extends Component {
               <MenuIcon />
             </IconButton>
             <Typography variant="title" color="inherit" className={classes.flex}>
-              Album layout
+              夏目漱石記念館
             </Typography>
             {
               this.props.user.displayName ? <Logged user={this.props.user} />
